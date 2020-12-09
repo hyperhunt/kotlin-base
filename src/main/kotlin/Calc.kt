@@ -3,10 +3,10 @@ private fun Int.prin() {
 }
 
 fun fibo(n: Int): Int {
-    if (n == 1 || n == 2) {
-        return 1;
+    return if (n == 1 || n == 2) {
+        1
     } else {
-        return fibo(n - 1) + fibo(n - 2)
+        fibo(n - 1) + fibo(n - 2)
     }
 
 }
