@@ -16,9 +16,18 @@ fun eval(e: Expr): Int {
     }
 }
 
+// Функция расширения свойства
+var StringBuilder.lastCharOf : Char
+    get() = get(length - 1)
+    set(value) = setCharAt(length - 1, value)
+
 fun main() {
     println(eval(Sum(Num(2), Mul(
         Num(5),
         Num(6)
     ))))
+
+    var ch = StringBuilder("Hello")
+    ch.lastCharOf = '!'
+    println(ch)
 }
