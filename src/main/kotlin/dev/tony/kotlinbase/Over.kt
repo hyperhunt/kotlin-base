@@ -75,18 +75,19 @@ class Secret private constructor() {
     }
 }*/
 
-data class Client (val name: String, val address: String, val index: Int)
+data class Client(val name: String, val address: String, val index: Int = 0)
 
 fun main() {
 
     val tony = Client("Tony", "Moscow", 42)
     val harper = Client("Tony", "Moscow", 42)
-    println(tony)
+    println("== ${tony == harper}") // true -> data class override hash
+/*    println(tony)
     println(harper)
     println(tony == harper) // equals false
 
     val set = hashSetOf(tony)
-    println("set: " + set.contains(harper))
+    println("set: " + set.contains(harper))*/
 
     val face = AnimatedButton()
     face.delete()
