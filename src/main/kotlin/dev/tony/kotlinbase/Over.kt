@@ -61,7 +61,33 @@ data class User(val name: String = "Empty") : Base() {
 class Secret private constructor() {
 }
 
+
+/*class Client (val name: String, val address: String, val index: Int) {
+    override fun toString(): String {
+        return "$name $address $index"
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return when {
+            other == null || other !is Client -> false
+            else -> name == other.name && index == other.index
+        }
+    }
+}*/
+
+data class Client (val name: String, val address: String, val index: Int)
+
 fun main() {
+
+    val tony = Client("Tony", "Moscow", 42)
+    val harper = Client("Tony", "Moscow", 42)
+    println(tony)
+    println(harper)
+    println(tony == harper) // equals false
+
+    val set = hashSetOf(tony)
+    println("set: " + set.contains(harper))
+
     val face = AnimatedButton()
     face.delete()
 
