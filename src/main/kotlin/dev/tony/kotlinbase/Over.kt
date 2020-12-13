@@ -58,6 +58,9 @@ data class User(val name: String = "Empty") : Base() {
     }
 }
 
+class Secret private constructor() {
+}
+
 fun main() {
     val face = AnimatedButton()
     face.delete()
