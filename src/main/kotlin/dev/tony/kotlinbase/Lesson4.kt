@@ -27,6 +27,12 @@ fun Pair<Int, Int>.r(): RationalNumber = RationalNumber(first, second)
 
 infix fun Int.sm(other: Int) : Int = this + other
 
+open class Base
+class Child : Base()
+
+fun Base.hello() : String = "Hello Base!"
+fun Child.hello() : String = "Hello Child!"
+
 fun main() {
     println(42.r())
     println((25 to 45).r())
@@ -35,4 +41,7 @@ fun main() {
 /*    println("".isEmptyOrNull())
     println(null.isEmptyOrNull())
     println("hello".isEmptyOrNull())*/
+
+    val child: Base = Child()
+    println(child.hello()) // "Hello Base!" not override Base.
 }
