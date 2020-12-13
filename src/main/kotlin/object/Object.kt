@@ -14,15 +14,12 @@ object Singleton {
     fun hello() = println("Object Singleton")
 }
 
-class Outer//    private val data: String = "Harper"
-private constructor() {
-    companion object Hello {
-        fun hello() = println("Outer companion object")
-        fun get(): Outer = Outer()
-    }
+data class Abc(val str: String = "Hello Class") {
     companion object Loader {
-        fun  hello() = println("Hello from Loader")
+        fun hello() = println("Outer companion object")
+        fun get(): Abc = Abc()
     }
+    fun helloAbc() = println("Hello from Outer hello")
 }
 
 fun main() {
@@ -30,6 +27,13 @@ fun main() {
     Singleton.hello()
 
 //    val outer = Outer.hello()
-    val outer = Outer.get()
-    Outer.hello()
+    val outer = Abc()
+    println(outer.toString())
+
+    Abc.Loader.hello()
+    outer.helloAbc()
+
+    val data = Abc.Loader
+    data.hello()
+    data.get()
 }
