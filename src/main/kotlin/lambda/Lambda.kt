@@ -69,8 +69,11 @@ fun main() {
     println("Среднее значение по возрасту: " + peopleAllAge.average())
     println("Сумма всех возрастов: " + peopleAllAge.sumBy { it.toInt() })
 
-    // reduce
     // fold
     println(list)
-    println(list.fold(initial = 0, {total, next -> total + next}))
+//    println(list.fold(initial = 0, { acc: Int, nextElem -> acc + nextElem}))
+    println("Fold: " + list.fold(initial = 0) { acc: Int, nextElem -> acc + nextElem})
+
+    // reduce
+    println("Reduce: " + list.reduce { acc: Int, nextElem -> acc + nextElem})
 }
