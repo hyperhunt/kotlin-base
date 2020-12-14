@@ -64,8 +64,13 @@ fun main() {
     println(people.find { it.age == 13 && it.name.contains('k') })
 
     // Поиск
-    val peopleAllAge = people.filter { it.age >= 0 }.map { it.age }
+//    val peopleAllAge = people.filter { it.age >= 0 }.map { it.age }
+    val peopleAllAge = people.map { it.age.toFloat() }
     println("Среднее значение по возрасту: " + peopleAllAge.average())
-    println("Сумма всех возрастов: " + peopleAllAge.sumBy { it })
+    println("Сумма всех возрастов: " + peopleAllAge.sumBy { it.toInt() })
 
+    // reduce
+    // fold
+    println(list)
+    println(list.fold(initial = 0, {total, next -> total + next}))
 }
