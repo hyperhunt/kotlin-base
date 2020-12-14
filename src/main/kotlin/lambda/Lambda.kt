@@ -98,4 +98,7 @@ fun main() {
     println(listOfList.flatten()) // Объединяет из листов в один лист
     println(listOfList.flatten().flatMap { it.toList() }) // Разделить на листы каждый элемент
     println(listOfList.flatten().map { it.toList() }) // Из каждого элемента делает лист.
+
+    // Zip для объединения пар из разных листов
+    println(people.zip(list))
 }
