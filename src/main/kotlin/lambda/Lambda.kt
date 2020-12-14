@@ -60,7 +60,12 @@ fun main() {
     // count countBy
 
     println("Count: " + people.count())
-    println(people.count { it.age == 13 })
+    println("Сколько человек кому 13 лет: " + people.count { it.age == 13 })
     println(people.find { it.age == 13 && it.name.contains('k') })
+
+    // Поиск
+    val peopleAllAge = people.filter { it.age >= 0 }.map { it.age }
+    println("Среднее значение по возрасту: " + peopleAllAge.average())
+    println("Сумма всех возрастов: " + peopleAllAge.sumBy { it })
 
 }
