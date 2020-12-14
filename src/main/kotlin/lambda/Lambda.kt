@@ -12,8 +12,14 @@ val people = listOf(
 val list = listOf(1, 2, 3, 4, 5, 6, 7)
 val nullableList: List<Int?> = listOf(1, 2, 3, null, 6, 8)
 val nullableList2: List<Int?>? = listOf(1, 2, 3, null, 6, 8)
-val listDistinct = listOf('a', 'A','b','B','A','B','c')
+val listDistinct = listOf('a', 'A', 'b', 'B', 'A', 'B', 'c')
 val mapData = mapOf(1 to "one", 2 to "two", 3 to "three")
+
+val listOfList = listOf(
+    listOf("abc", "fvf", "cdc"),
+    listOf("Apple", "Linux", "ARM"),
+    listOf("Tony", "Mock", "Harper"),
+)
 
 fun main() {
 
@@ -72,8 +78,24 @@ fun main() {
     // fold
     println(list)
 //    println(list.fold(initial = 0, { acc: Int, nextElem -> acc + nextElem}))
-    println("Fold: " + list.fold(initial = 0) { acc: Int, nextElem -> acc + nextElem})
+    println("Fold: " + list.fold(initial = 0) { acc: Int, nextElem -> acc + nextElem })
 
     // reduce
-    println("Reduce: " + list.reduce { acc: Int, nextElem -> acc + nextElem})
+    println("Reduce: " + list.reduce { acc: Int, nextElem -> acc + nextElem })
+
+    // Группировка данных по критериями
+    people.groupBy { it.age }.keys.forEach { println(it)  } // gtoupBy -> map
+    people.groupBy { it.age }.forEach { println(it)  } // gtoupBy -> map
+
+    people.associateBy { it.age }.forEach { println(it) }
+
+    // partition -> 1 elem is 2 collections
+    people.partition { it.age > 13 }.first.forEach { println(it) }
+
+    println("=== === ===")
+
+    // Из листа листов сделать листив стригов
+    println(listOfList.flatten()) // Объединяет из листов в один лист
+    println(listOfList.flatten().flatMap { it.toList() }) // Разделить на листы каждый элемент
+    println(listOfList.flatten().map { it.toList() }) // Из каждого элемента делает лист.
 }
