@@ -105,4 +105,35 @@ class CalculatorTest {
 
         assertEquals("Division by zero", exception.message, "Exception should be 'Division by zero'.")
     }
+
+    @Test
+    fun combineAddAndMul() {
+        val calculator = Calculator(15)
+
+        assertAll(
+            "Checking...",
+            {
+                assertEquals(
+                    15,
+                    calculator.get()
+                )
+            },
+            {
+                calculator.add(2)
+                assertEquals(
+                    17,
+                    calculator.get()
+                )
+            },
+            {
+                calculator.mul(3)
+                assertEquals(
+                    51,
+                    calculator.get()
+                )
+            },
+        )
+
+
+    }
 }
