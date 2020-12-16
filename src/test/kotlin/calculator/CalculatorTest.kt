@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.MethodSource
+import java.lang.AssertionError
 import java.util.stream.Stream
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Использовать один класс для всех тестов
@@ -92,5 +93,16 @@ class CalculatorTest {
             calculator.get(),
             "pairAdd: [$f * $s should give $r]"
         )
+    }
+
+    @Test
+    fun divisionByZeroThrowsException() {
+        val calculator = Calculator(10)
+
+        val exception = assertThrows<AssertionError> {
+            calculator.div(0)
+        }
+
+        assertEquals("Division by zero", exception.message, "Exception should be 'Division by zero'.")
     }
 }
