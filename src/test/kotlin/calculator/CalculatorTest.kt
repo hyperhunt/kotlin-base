@@ -4,7 +4,10 @@ import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
+import org.junit.jupiter.params.provider.MethodSource
+import java.util.stream.Stream
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Использовать один класс для всех тестов
 //@DisplayName("Calculator Add test func")
@@ -68,6 +71,26 @@ class CalculatorTest {
             r,
             calculator.get(),
             "pairAdd: [$f + $s should give $r]"
+        )
+    }
+
+    fun data(): Stream<Arguments> = Stream.of(
+        Arguments.of(0, 0, 0),
+        Arguments.of(0, 3, 0),
+        Arguments.of(12, 3, 36),
+        Arguments.of(3, 6, 18),
+    )
+
+    @ParameterizedTest(name = "{0} * {1} = {2}")
+    @MethodSource("data") // использование метода
+    fun `paraMul with @MethodSource`(f: Int, s: Int, r: Int) {
+        println("paraMul with @MethodSource")
+        val calculator = Calculator(f)
+        calculator.mul(s)
+        assertEquals(
+            r,
+            calculator.get(),
+            "pairAdd: [$f * $s should give $r]"
         )
     }
 }
