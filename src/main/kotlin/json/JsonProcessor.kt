@@ -1,5 +1,6 @@
 package json
 
+import com.google.gson.Gson
 import org.json.JSONObject
 
 val json = """
@@ -24,9 +25,17 @@ val json = """
 """.trimIndent()
 
 fun main() {
-    val obj = JSONObject(json)
+/*    val obj = JSONObject(json)
     println(obj.getString("owner"))
     val books = obj.getJSONArray("books")
     val book = books[1] as JSONObject
-    println(book.getString("author").trim())
+    println(book.getString("author").trim())*/
+
+    // Gson
+    val gson = Gson()
+    val owner: BookOwner = gson.fromJson(json, BookOwner::class.java)
+
+    println(owner.books[1].author.trim())
+
+    println(gson.toJson(owner))
 }
