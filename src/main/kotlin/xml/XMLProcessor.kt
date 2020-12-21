@@ -4,7 +4,7 @@ import org.xml.sax.InputSource
 import java.io.StringReader
 import javax.xml.parsers.DocumentBuilderFactory
 
-val xml = """
+/*val xml = """
     <catalog>
        <book id="bk101">
           <author>Gambardella, Matthew</author>
@@ -23,15 +23,17 @@ val xml = """
           <description>A former architect battles corporate zombies.</description>
        </book>
     </catalog>
-""".trimIndent()
+""".trimIndent()*/
 
+/*
 fun main() {
     // Два типа парсеров в Джава
     // SAX - потоковый, вызывает колбеки функцию по условию, результат нужно где-то хранить.
     // DOM - создает древовидную модель документа, органичение по оперативной памяти.
 
     // BuilderFactory
-    val buildFactory = DocumentBuilderFactory.newInstance()
+*/
+/*    val buildFactory = DocumentBuilderFactory.newInstance()
     val documentBuilder = buildFactory.newDocumentBuilder()
     val doc = documentBuilder.parse(InputSource(StringReader(xml)))
     val books = doc.getElementsByTagName("book")
@@ -39,5 +41,6 @@ fun main() {
         val book = books.item(i)
         println(book.attributes.getNamedItem("id"))
         println(book.childNodes.item(1).textContent)
-    }
-}
+    }*//*
+
+}*/
