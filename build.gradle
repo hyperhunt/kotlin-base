@@ -22,6 +22,11 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.6'
     compile 'org.simpleframework:simple-xml:2.7.1'
 
+    // Retrofit2
+    compile 'com.squareup.retrofit2:retrofit:2.7.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.7.1'
+    compile 'com.squareup.retrofit2:converter-simplexml:2.7.1'
+
 }
 
 compileKotlin {
