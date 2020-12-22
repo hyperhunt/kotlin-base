@@ -1,8 +1,7 @@
-package retrofir.dictionary
+package retrofitDictionary
 
 import retrofit2.Retrofit
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
-import retrofit2.create
 
 val retrofit: Retrofit = Retrofit.Builder()
     .baseUrl("https://dictionary.yandex.net")
