@@ -1,6 +1,26 @@
 package collections// Коллекции List Set Map
 
+class Box<T : Any?> (t: T) {
+    var value = t
+}
+
+fun <T> List<T>.getByNumbers(vararg args: Int): List<T> {
+    val result = mutableListOf<T>()
+    for (i in args) {
+        result.add(this[i])
+    }
+    return result
+}
+
 fun main() {
+
+    val intBox = Box<Int>(1)
+    val numerBox: Box<Number> = Box<Number>(3.183)
+    val nullBox = Box(null) // NUllable
+
+    val list = mutableListOf(1,2,3,4,5).getByNumbers(2,4)
+    println(list)
+
 /*    val list = listOf(1, 2, 3, 4)
     val list2 = listOf(1, 2, 3, 4)
     println(list == list2)
