@@ -17,7 +17,7 @@ class Something<T>(p: T) {
     val prop: T = p
 }
 
-class MapSomething<T, V>(val str: T, val num: V) {
+class MapSomething<T, V>(val str: T, private val num: V) {
     override fun toString(): String {
         return "T: $str, V: $num"
     }
@@ -46,4 +46,5 @@ fun main() {
     println("\nMapClass<T, V>")
     val data: MapSomething<String, Int> = MapSomething("Stroke", 42)
     println(data)
+    println(data.str)
 }
