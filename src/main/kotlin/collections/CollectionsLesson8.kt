@@ -1,6 +1,6 @@
 package collections// Коллекции List Set Map
 
-class Box<T : Any?> (t: T) {
+class Box<T : Any?>(t: T) {
     var value = t
 }
 
@@ -12,13 +12,21 @@ fun <T> List<T>.getByNumbers(vararg args: Int): List<T> {
     return result
 }
 
+class Bitmap
+class Result<T : Any>(val result: T?, val t: Throwable?)
+
 fun main() {
+
+    val bitmap = Bitmap()
+    val result = Result(bitmap, null)
+    val throwable = Throwable("Error")
+    val error = Result<Bitmap>(null, throwable)
 
     val intBox = Box<Int>(1)
     val numerBox: Box<Number> = Box<Number>(3.183)
     val nullBox = Box(null) // NUllable
 
-    val list = mutableListOf(1,2,3,4,5).getByNumbers(2,4)
+    val list = mutableListOf(1, 2, 3, 4, 5).getByNumbers(2, 4)
     println(list)
 
 /*    val list = listOf(1, 2, 3, 4)
