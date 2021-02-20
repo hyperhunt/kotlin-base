@@ -6,11 +6,14 @@ interface MainContract {
     }
 
     interface View {
-        fun getShowView(loadMessage: String)
+        fun showView() {}
+        interface ActionsListener {
+            val actionsListener
+                get() = View.showView()
+        }
     }
 
     interface Presenter {
-        fun initPresenter()
     }
 }
 
@@ -23,22 +26,21 @@ class MainRepository : MainContract.Repository {
 }
 
 class MainView : MainContract.View {
-    override fun getShowView(loadMessage: String) {
-        println(loadMessage)
+    override fun showView() {
+        println("loadMessage")
     }
 }
 
-class MainPresenter : MainContract.Presenter {
-    private val mView: MainView = MainView()
-    private val mRepository: MainRepository = MainRepository()
+class MainPresenter(
+    mView: MainView = MainView(),
+    mRepository: MainRepository = MainRepository(),
+) : MainContract.Presenter, MainContract.View.ActionsListener {
 
-    override fun initPresenter() {
-        if (mRepository.loadMessage().isNotEmpty()) {
-            mView.getShowView(mRepository.loadMessage())
-        }
+    init {
+        mView.showView()
     }
 }
 
 fun main() {
-    MainPresenter().initPresenter()
+    MainPresenter()
 }
