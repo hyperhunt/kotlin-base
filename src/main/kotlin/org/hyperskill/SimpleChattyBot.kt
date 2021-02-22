@@ -2,6 +2,84 @@ package org.hyperskill
 
 
 
+//Yay! You've completed Stage 2/4!
+
+//
+// Kotlin - Strings
+//
+
+/*fun main() {
+//Write a program that reads five words from the standard input and outputs each word in a new line.
+//The words can be placed in the input stream in any way.
+//To solve the problem, use Scanner .
+
+    val scanner = Scanner(System.`in`)
+    val fiveWords = mutableListOf<String>()
+
+    while (fiveWords.size < 5) {
+        scanner.nextLine().split(" ").forEach {
+            if (fiveWords.size < 5) fiveWords.add(it)
+        }
+    }
+
+    fiveWords.forEach { println(it) }
+
+//    while (fiveWords.size < 5) {
+//        val line = scanner.nextLine().split(" ")
+//    }
+//    println(fiveWords)
+//    var line: String = ""
+//    for (i in 0 until 5 step 1) line += scanner.nextLine()
+//
+//    line.split(" ").forEach { println(it) }
+//    for (i in line) {
+//        println(i)
+//    }
+
+//    line.split(" ").forEach { println(it) }
+//    println(scanner.hasNextLine())
+//
+
+//    while ( != 0) {
+//
+//        line.split(" ").forEach { println(it) }
+//    }
+
+//    val str = """
+//        This course
+//        teach you Kotlin
+//    """.trimIndent()
+
+//    str.split(" ").forEach { println(it) }
+}*/
+
+
+/*fun main() {
+    val scanner = "Tony"
+
+    println("Hello! My name is Aid.")
+    println("I was created in 2020.")
+    println("Please, remind me your name.")
+
+    // reading a name
+
+    val yourName= readLine()!!
+    println("What a great name you have, ${yourName}!")
+    println("Let me guess your age.")
+    println("Enter remainders of dividing your age by 3, 5 and 7.")
+
+    // reading all remainders
+
+    val age = readLine()!!.split(" ")
+    println(age)
+    val remainder3 = age[0].toInt()
+    val remainder5 = age[1].toInt()
+    val remainder7 = age[2].toInt()
+    val yourAge = (remainder3 * 70 + remainder5 * 21 + remainder7 * 15) % 105
+
+    println("Your age is ${yourAge}; that's a good time to start programming!")
+}*/
+
 //
 // Kotlin - character
 //
