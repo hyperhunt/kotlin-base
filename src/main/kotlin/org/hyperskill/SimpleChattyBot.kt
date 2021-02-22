@@ -1,6 +1,37 @@
 package org.hyperskill
 
 //
+// Kotlin - Data types and variables - Ranges String templates
+//
+
+// Yaaay!
+//You completed String templates
+
+fun main() {
+    val ch = readLine()!!
+    val indexCh = readLine()!!.toInt()
+    println("Symbol # $indexCh of the string \"$ch\" is '${ch[indexCh-1]}'")
+}
+
+/*fun main() {
+//    23:59:59 12/12/2018
+    val ch1 = readLine()!!.split(" ")
+    val ch2 = readLine()!!.split(" ")
+    println("${ch1[0]}:${ch1[1]}:${ch1[2]} ${ch2[0]}/${ch2[1]}/${ch2[2]}")
+}*/
+
+/*fun main() {
+
+    val ch1 = readLine()!!.toInt()
+    val ch2 = readLine()!!.toInt()
+
+    println("$ch1 plus $ch2 equals ${ch1 + ch2}")
+//    12 plus 34 equals 46
+//    val s = "string"
+//    print("$s.first()")
+}*/
+
+//
 // Kotlin - Data types and variables - Ranges
 //
 
