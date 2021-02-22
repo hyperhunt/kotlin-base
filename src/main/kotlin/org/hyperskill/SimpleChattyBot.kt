@@ -1,6 +1,40 @@
 package org.hyperskill
 
+//
+// Kotlin - Data types and variables - Ranges
+//
 
+/*fun main() {
+//    Write a program that reads five integer numbers. The first and the second numbers create one range, the third and the fourth ones create another range.
+//    Output "true" if the fifth number is within at least one range, otherwise output "false".
+
+    val ch1 = readLine()!!.toInt()
+    val ch2 = readLine()!!.toInt()
+    val ch3 = readLine()!!.toInt()
+    val ch4 = readLine()!!.toInt()
+    val ch5 = readLine()!!.toInt()
+
+    if ((ch5 in ch1..ch2) || (ch5 in ch3..ch4)) println(true) else println(false)
+}*/
+
+/*fun main() {
+//    Write a program that reads three integer numbers and prints "true" if the first number is between the second and the third ones (inclusive). Otherwise, it is to print "false". Guaranteed that the second number is less than the third one.
+//    Use ranges to solve the problem.
+
+    val ch1 = readLine()!!.toInt()
+    val ch2 = readLine()!!.toInt()
+    val ch3 = readLine()!!.toInt()
+
+    if ((ch1 in ch2..ch3) && (ch2 < ch3)) println(true) else println(false)
+}*/
+
+/*fun main() {
+//    Julia wants to get a job. Although by the law of the country she lives in, she can work only if her age is within 18 to 59 years inclusive.
+//    For a particular age of Julia output "true" if she can get a job, otherwise output "false".
+
+    val age = readLine()!!.toInt()
+    println(age in 18..59)
+}*/
 
 //Yay! You've completed Stage 2/4!
 
