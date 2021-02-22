@@ -7,13 +7,12 @@ interface MainContract {
 
     interface View {
         fun showView() {}
-        interface ActionsListener {
-            val actionsListener
-                get() = View.showView()
-        }
     }
 
-    interface Presenter {
+    interface Presenter
+
+    interface ActionsListener {
+        fun onButtonPressed()
     }
 }
 
@@ -29,18 +28,32 @@ class MainView : MainContract.View {
     override fun showView() {
         println("loadMessage")
     }
+
+    fun listenerForView() {}
 }
 
 class MainPresenter(
-    mView: MainView = MainView(),
+    view: MainView = MainView(),
     mRepository: MainRepository = MainRepository(),
-) : MainContract.Presenter, MainContract.View.ActionsListener {
+) : MainContract.Presenter, MainContract.ActionsListener {
 
     init {
-        mView.showView()
+//        view.showView()
+    }
+
+    val viewForPresenter = MainView()
+
+    override fun onButtonPressed() {
+        TODO("Not yet implemented")
     }
 }
 
 fun main() {
-    MainPresenter()
+//    MainPresenter()
+
+    val presenter = MainPresenter()
+    val view = MainView()
+
+//    presenter.viewForPresenter = view
+//    view.listenerForView = presenter
 }
