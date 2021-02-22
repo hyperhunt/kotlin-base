@@ -1,17 +1,46 @@
 package org.hyperskill
 
 //
+// Kotlin - Control flow - If expression
+//
+
+/*@ExperimentalTime
+fun main() {
+    var sum = 0.0f
+    val time = measureTime {
+        for (i in 1..100) sum+=0.01f
+    }
+    println(time)
+}*/
+
+/*fun main() {
+    val startTime = System.currentTimeMillis();
+    for (i in 1..1000 step 1) {
+        println(i)
+    }
+    println((System.currentTimeMillis() - startTime));
+}*/
+
+/*fun main() {
+    // Write a program that reads a number and prints EVEN if it is even. Otherwise, the program should print ODD.
+
+    val ch = readLine()!!.toInt()
+
+    if (ch % 2 != 0) println("ODD") else println("EVEN")
+}*/
+
+//
 // Kotlin - Data types and variables - Ranges String templates
 //
 
 // Yaaay!
 //You completed String templates
 
-fun main() {
-    val ch = readLine()!!
-    val indexCh = readLine()!!.toInt()
-    println("Symbol # $indexCh of the string \"$ch\" is '${ch[indexCh-1]}'")
-}
+//fun main() {
+//    val ch = readLine()!!
+//    val indexCh = readLine()!!.toInt()
+//    println("Symbol # $indexCh of the string \"$ch\" is '${ch[indexCh-1]}'")
+//}
 
 /*fun main() {
 //    23:59:59 12/12/2018
