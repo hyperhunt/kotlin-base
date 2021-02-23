@@ -1,6 +1,64 @@
 package org.hyperskill
 
 //
+// Kotlin - Control flow - Repeating blocks
+//
+
+//fun main() {
+////    Find the number of "Ds", "Cs", "Bs" and "As" for the last test on informatics
+////    in the class consisting of n students. The program gets number n as input and
+////    then gets the grades themselves (one by one). The program is to output four numbers
+////    in a single line which is the number
+////    of "D", the number of "C", the number of "B" and the number of "A" grades.
+////    Numbers represent grades this way: 2 is "D", 3 is "C", 4 is "B", and 5 is "A".
+//
+////    val scanner = readLine()!!.toInt()
+//    val scanner = mutableListOf<Int>(5, 3, 3, 5, 2, 5, 4, 2, 4, 5)
+//
+//    val d = scanner.filter { it == 2 }.count()
+//    val c = scanner.filter { it == 3 }.count()
+//    val b = scanner.filter { it == 4 }.count()
+//    val a = scanner.filter { it == 5 }.count()
+//
+//    println("$d $c $b $a")
+//
+//}
+
+//fun main() {
+////    val chCount = readLine()!!.toInt()
+////    val chCount = mutableListOf<Int>(8, 2, 3, 0, 7, 4, -2, -3, 0).count()
+//
+//    var chSequence = mutableListOf<Int>(2, 3, 0, 7, 4, -2, -3, 0)
+////    println(mutableListOf<Int>(0, 0, 0, 0, 1).filter { it >= 0 && it % 2 == 0 }.count())
+////    val scanner =  Integer.valueOf("asd")
+//
+////    val chSequence = mutableListOf<Int>()
+////    val scanner = Scanner(System.`in`)
+//
+////    repeat(scanner.nextInt()) {
+////        chSequence.add(scanner.nextInt())
+////    }
+//
+//    val result = chSequence.map { it }.filter { it > 0 }.count()
+//    println(result)
+//
+//    println("${TextColors.brightBlue("4")} --> ${
+//        if (result == 4) TextColors.green(result.toString()) else TextColors.red(result.toString())
+//    }\n")
+//    chSequence.forEach { println(it) }
+//}
+
+/*fun main() {
+    var number = 1
+
+    repeat(5){
+        number++
+    }
+
+    println(number)
+}*/
+
+//
 // Kotlin - Control flow - If expression
 //
 
