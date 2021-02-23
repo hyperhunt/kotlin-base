@@ -27,6 +27,8 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.7.1'
     compile 'com.squareup.retrofit2:converter-simplexml:2.7.1'
 
+    // Color
+    implementation("com.github.ajalt.mordant:mordant:2.0.0-alpha2")
 }
 
 compileKotlin {
