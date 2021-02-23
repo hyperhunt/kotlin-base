@@ -6,6 +6,7 @@ import com.github.ajalt.mordant.rendering.TextColors
 // Kotlin - Control flow - If expression
 //
 
+/* You completed If expression
 fun main() {
 
 //    println("Box 1 = Box 2")
@@ -13,7 +14,7 @@ fun main() {
 //    println("Box 1 > Box 2")
 //    println("Incomparable")
 
-/*
+*//*
 
 //
 //    println("${30 % 2}")
@@ -36,11 +37,11 @@ fun main() {
             (box1.reduce { acc, n -> acc + n }.toInt() > box2.reduce { acc, n -> acc + n }.toInt()) &&
                     (box1[0] >= box2[0] && box1[1] >= box2[1] && box1[2] >= box2[2]) -> println("Box 1 > Box 2")
             else -> println("Incomparable")}
-    }*/
+    }*//*
 
 
 
- */
+ *//*
 
 //    val box1 = readLine()!!.split(" ").sorted()
 //    val box2 = readLine()!!.split(" ").sorted()
@@ -90,24 +91,24 @@ fun main() {
 //        если x1 < y1, x2 < y2, x3 < y3
 
         val result = when {
-            boxSummary && box1[0] <= box2[0] && box1[1] <= box2[1] && box1[2] <= box2[2] -> "Box 1 == Box 2"
+            boxSummary && box1[0] <= box2[0] && box1[1] <= box2[1] && box1[2] <= box2[2] -> "Box 1 = Box 2"
             box1[0] <= box2[0] && box1[1] <= box2[1] && box1[2] <= box2[2]  -> "Box 1 < Box 2"
             box1[0] >= box2[0] && box1[1] >= box2[1] && box1[2] >= box2[2]  -> "Box 1 > Box 2"
             else -> "Incomparable"
         }
 
-/*        val result = when {
+*//*        val result = when {
             boxSummary || box1 in box2 || box2 in box1 -> "Box 1 == Box 2"
             box1 < box2 -> "Box 1 < Box 2"
             box2 in box1 && box1 !in box2 -> "Box 1 > Box 2"
             else -> "Incomparable"
-        }*/
+        }*//*
 
         println("--> R [$result] --> C [$check]\n" +
                 "--> Check: ${if (result == check) TextColors.green("Right") else TextColors.red("Wrong")}\n")
 
 
-/*        val result = when {
+*//*        val result = when {
             (box1[0] + box1[1] + box1[2]) == (box2[0] + box2[1] + box2[2]) &&
                     (box1[0] == box2[0] || box1[0] == box2[1] || box1[0] == box2[2]) &&
                     (box1[1] == box2[0] || box1[1] == box2[1] || box1[1] == box2[2]) &&
@@ -121,7 +122,7 @@ fun main() {
                     (box1[1] >= box2[0] || box1[1] >= box2[1] || box1[1] >= box2[2]) &&
                     (box1[2] >= box2[0] || box1[2] >= box2[1] || box1[2] >= box2[2]) -> "Box 1 > Box 2"
             else -> "Incomparable"
-        }*/
+        }*//*
 
 //        val globalResult: Boolean = result == result2
 
@@ -137,8 +138,9 @@ fun main() {
     boxes("2 2 2", "1 1 1", "Box 1 > Box 2")
     boxes("2 2 2", "1 2 2", "Box 1 > Box 2")
     boxes("2 3 4", "1 3 5", "Incomparable")
+    boxes("977 301 378", "635 394 435", "Box 1 < Box 2")
 
-}
+}*/
 
 /*fun main() {
 //    Read three natural numbers a, b, c. Define if a triangle with such side lengths exists.
