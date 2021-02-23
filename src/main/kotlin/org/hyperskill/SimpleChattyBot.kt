@@ -1,8 +1,161 @@
 package org.hyperskill
 
+import com.github.ajalt.mordant.rendering.TextColors
+
 //
 // Kotlin - Control flow - If expression
 //
+
+fun main() {
+
+//    println("Box 1 = Box 2")
+//    println("Box 1 <= box 2")
+//    println("Box 1 > Box 2")
+//    println("Incomparable")
+
+/*
+
+//
+//    println("${30 % 2}")
+//    println("${25 % 2}")
+
+//    val ch: Int = box1.reduce { total, next -> total + next }.toInt()
+
+//    println((box1[2] <= box2[2]) )
+//    println("${box1[2]} ${box2[2]}")
+
+/*    when {
+
+        (box1.reduce { acc, n -> acc + n }.toInt() == box2.reduce { acc, n -> acc + n }.toInt()) &&
+                (box1[0] == box2[1] || box1[0] == box2[1] || box1[0] == box2[2] ) &&
+                (box1[1] == box2[1] || box1[0] == box2[1] || box1[0] == box2[2] ) &&
+                (box1[2] == box2[1] || box1[0] == box2[1] || box1[0] == box2[2] ) -> println("Box 1 = Box 2")
+        else -> when {
+            (box1.reduce { acc, n -> acc + n }.toInt() < box2.reduce { acc, n -> acc + n }.toInt()) &&
+                    (box1[0] <= box2[0] && box1[1] <= box2[1] && box1[2] <= box2[2]) -> println("Box 1 < Box 2")
+            (box1.reduce { acc, n -> acc + n }.toInt() > box2.reduce { acc, n -> acc + n }.toInt()) &&
+                    (box1[0] >= box2[0] && box1[1] >= box2[1] && box1[2] >= box2[2]) -> println("Box 1 > Box 2")
+            else -> println("Incomparable")}
+    }*/
+
+
+
+ */
+
+//    val box1 = readLine()!!.split(" ").sorted()
+//    val box2 = readLine()!!.split(" ").sorted()
+
+//    val box1: List=String> = "1 2 3".split(" ").sorted()
+//    val box2: List=String> = "4 3 1".split(" ").sorted()
+
+//    val box1: List<Int> = "2 2 2".split(" ").map { it.toInt() }
+//    val box2: List<Int> = "1 2 2".split(" ").map { it.toInt() }
+
+//    val box1: List<Int> = "10 20 30".split(" ").map { it.toInt() }
+//    val box2: List<Int> = "5 15 25".split(" ").map { it.toInt() }
+
+//    val box1: List<Int> = "1 2 3".split(" ").map { it.toInt() }
+//    val box2: List<Int> = "2 3 1".split(" ").map { it.toInt() }
+
+//    val box1: List<Int> = "2 3 4".split(" ").map { it.toInt() }
+//    val box2: List<Int> = "1 3 5".split(" ").map { it.toInt() }
+
+//    val box1: List<Int> = "977 301 378".split(" ").map { it.toInt() }
+//    val box2: List<Int> = "635 394 435".split(" ").map { it.toInt() }
+
+//    println("${box1.sorted()}\n${box2.sorted()}")
+
+//    val box1: List<Int> = readLine()!!.split(" ").map { it.toInt() } // "1 2 3"
+//    val box2: List<Int> = readLine()!!.split(" ").map { it.toInt() } // "2 3 1"
+
+//    val box1: List<Int> = "10 20 30".split(" ").map { it.toInt() % 2 }.sorted()
+//    val box2: List<Int> = "5 15 25".split(" ").map { it.toInt() % 2 }.sorted()
+
+//    354 257 476
+//    479 178 200
+//    val box1: List<Int> = "354 257 476".split(" ").map { it.toInt() }.sorted()
+//    val box2: List<Int> = "479 178 200".split(" ").map { it.toInt() }.sorted()
+
+    fun boxes(line1: String, line2: String, check: String) {
+
+        var box1: List<Int> = line1.split(" ").map { it.toInt() }.sorted().reversed()
+        var box2: List<Int> = line2.split(" ").map { it.toInt() }.sorted().reversed()
+
+        println("${box1}\n${box2}")
+
+        val boxSummary = box1.reduce { acc, n -> acc + n }.toInt() == box2.reduce { acc, n -> acc + n }.toInt()
+
+//        Коробка со сторонами x1, x2, x3, x1 >= x2 >= x3,
+//        помещается в коробку со сторонами y1, y2, y3, y1 >= y2 >= y3,
+//        если x1 < y1, x2 < y2, x3 < y3
+
+        val result = when {
+            boxSummary && box1[0] <= box2[0] && box1[1] <= box2[1] && box1[2] <= box2[2] -> "Box 1 == Box 2"
+            box1[0] <= box2[0] && box1[1] <= box2[1] && box1[2] <= box2[2]  -> "Box 1 < Box 2"
+            box1[0] >= box2[0] && box1[1] >= box2[1] && box1[2] >= box2[2]  -> "Box 1 > Box 2"
+            else -> "Incomparable"
+        }
+
+/*        val result = when {
+            boxSummary || box1 in box2 || box2 in box1 -> "Box 1 == Box 2"
+            box1 < box2 -> "Box 1 < Box 2"
+            box2 in box1 && box1 !in box2 -> "Box 1 > Box 2"
+            else -> "Incomparable"
+        }*/
+
+        println("--> R [$result] --> C [$check]\n" +
+                "--> Check: ${if (result == check) TextColors.green("Right") else TextColors.red("Wrong")}\n")
+
+
+/*        val result = when {
+            (box1[0] + box1[1] + box1[2]) == (box2[0] + box2[1] + box2[2]) &&
+                    (box1[0] == box2[0] || box1[0] == box2[1] || box1[0] == box2[2]) &&
+                    (box1[1] == box2[0] || box1[1] == box2[1] || box1[1] == box2[2]) &&
+                    (box1[2] == box2[0] || box1[2] == box2[1] || box1[2] == box2[2]) -> "Box 1 = Box 2"
+            (box1[0] + box1[1] + box1[2]) <= (box2[0] + box2[1] + box2[2]) &&
+                    (box1[0] <= box2[0] || box1[0] <= box2[1] || box1[0] <= box2[2]) &&
+                    (box1[1] <= box2[0] || box1[1] <= box2[1] || box1[1] <= box2[2]) &&
+                    (box1[2] <= box2[0] || box1[2] <= box2[1] || box1[2] <= box2[2]) -> "Box 1 < Box 2"
+            (box1[0] + box1[1] + box1[2]) >= (box2[0] + box2[1] + box2[2]) &&
+                    (box1[0] >= box2[0] || box1[0] >= box2[1] || box1[0] >= box2[2]) &&
+                    (box1[1] >= box2[0] || box1[1] >= box2[1] || box1[1] >= box2[2]) &&
+                    (box1[2] >= box2[0] || box1[2] >= box2[1] || box1[2] >= box2[2]) -> "Box 1 > Box 2"
+            else -> "Incomparable"
+        }*/
+
+//        val globalResult: Boolean = result == result2
+
+//        println("-> check: ${if (result == check) TextColors.green("true") else TextColors.red("false")}\n")
+//        println("[$result] .. [$result2] .. [$check]\n" +
+//                "--> check: ${if (globalResult) TextColors.green("true") else TextColors.red("false")}\n")
+
+    }
+
+    boxes("2 2 2", "2 2 2", "Box 1 = Box 2")
+    boxes("1 2 3", "2 3 1", "Box 1 = Box 2")
+    boxes("1 1 1", "2 2 2", "Box 1 < Box 2")
+    boxes("2 2 2", "1 1 1", "Box 1 > Box 2")
+    boxes("2 2 2", "1 2 2", "Box 1 > Box 2")
+    boxes("2 3 4", "1 3 5", "Incomparable")
+
+}
+
+/*fun main() {
+//    Read three natural numbers a, b, c. Define if a triangle with such side lengths exists.
+//    If the triangle exists, output the YES string, otherwise output NO.
+//    Note that a triangle is formed by three connected points that are not located on a single straight line.
+
+//    val ch1 = 3
+//    val ch2 = 4
+//    val ch3 = 5
+
+    val ch1 = readLine()!!.toInt()
+    val ch2 = readLine()!!.toInt()
+    val ch3 = readLine()!!.toInt()
+
+    if ((ch1 < ch2 + ch3) && (ch2 < ch1 + ch3) && (ch3 < ch1 + ch2)) println("YES") else println("NO")
+
+}*/
 
 /*@ExperimentalTime
 fun main() {
@@ -107,7 +260,7 @@ fun main() {
 //The words can be placed in the input stream in any way.
 //To solve the problem, use Scanner .
 
-    val scanner = Scanner(System.`in`)
+    val scanner = Scanner(System.in)
     val fiveWords = mutableListOf<String>()
 
     while (fiveWords.size < 5) {
