@@ -1,6 +1,45 @@
 package org.hyperskill
 
 //
+// Kotlin - Control flow - For loop and ranges
+//
+
+/*
+fun main() {
+    var x: Int = 0
+    val a = readLine()!!.toInt()
+    val b = readLine()!!.toInt()
+    val c = readLine()!!.toInt()
+    val d = readLine()!!.toInt()
+
+    repeat(1000) {
+        if (a * x.toFloat().pow(3).toInt() + b * x.toFloat().pow(2).toInt() + c * x + d == 0) println(x)
+        x++
+    }
+}
+*/
+
+/*fun main() {
+    for (i in 1..3) {
+        for (j in 1..i) {
+            print(j)
+        }
+    }
+}*/
+
+/*
+fun main() {
+    for (i in 2..10 step 2) {
+        for (j in 2..10 step 2) {
+            print(i * j)
+            print('\t')  // print the product of i and j followed by one tab
+        }
+        println()
+    }
+}
+*/
+
+//
 // Kotlin - Control flow - Repeating blocks
 //
 
