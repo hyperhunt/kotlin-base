@@ -4,6 +4,72 @@ package org.hyperskill
 // Kotlin - Control flow - For loop and ranges
 //
 
+/*import java.util.*
+
+
+fun main() {
+    val scanner = Scanner(System.`in`)
+
+    println("Hello! My name is Aid.")
+    println("I was created in 2020.")
+    println("Please, remind me your name.")
+
+    val name = scanner.nextLine()
+
+    println("What a great name you have, " + name + "!")
+    println("Let me guess your age.")
+    println("Enter remainders of dividing your age by 3, 5 and 7.")
+
+    val rem3 = scanner.nextInt()
+    val rem5 = scanner.nextInt()
+    val rem7 = scanner.nextInt()
+    val age = (rem3 * 70 + rem5 * 21 + rem7 * 15) % 105
+
+    println("Your age is " + age + "; that's a good time to start programming!")
+    println("Now I will prove to you that I can count to any number you want.")
+
+    val num = scanner.nextInt()
+
+    for (i in 0..num) {
+        println("$i!")
+    }
+
+    println("Completed, have a nice day!")
+}*/
+
+/*fun main() {
+    val ch1 = readLine()!!.toInt()
+    val ch2 = readLine()!!.toInt()
+    var result: Long = 1
+
+    for (i in ch1 until ch2) {
+        result *= i
+    }
+
+    println(result)
+}*/
+
+//fun main() {
+//    val ch = readLine()!!.toInt()
+//    var sum = 0
+//
+//    repeat(ch) {
+//        sum += readLine()!!.toInt()
+//    }
+//
+//    println(sum)
+//}
+
+//fun main() {
+//    var ch: String = ""
+//
+//    repeat(5) {
+//        ch = ch + " " +  readLine()!!.trim()
+//    }
+//
+//    println(ch.trimIndent())
+//}
+
 /*
 fun main() {
     var x: Int = 0
