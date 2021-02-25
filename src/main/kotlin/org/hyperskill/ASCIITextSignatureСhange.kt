@@ -1,5 +1,24 @@
 package org.hyperskill
 
+/* Print star.
+fun main() {
+
+    val charStar = '*'
+    val text = readLine()!!
+
+    repeat(text.length + 4) {
+        print(charStar)
+    }
+    println("")
+
+    println("* $text *")
+
+    repeat(text.length + 4) {
+        print(charStar)
+    }
+    println("")
+}*/
+
 /* "Hyper Skill"
 
 fun main() {
