@@ -4,6 +4,251 @@ package org.hyperskill
 // Data types and variables
 //
 
+/*object fontASCII {
+    val a = """
+        ____
+        |__|
+        |  |
+    """.trimIndent()
+
+}*/
+
+class FontASCII {
+    val a = """
+        ____
+        |__|
+        |  |
+    """.trimIndent()
+
+    val b = """
+        ___ 
+        |__]
+        |__]
+    """.trimIndent()
+
+    val c = """
+        ____
+        |   
+        |___
+    """.trimIndent()
+
+    val d = """
+        ___ 
+        |  \
+        |__/
+    """.trimIndent()
+
+    val e = """
+        ____
+        |___
+        |___
+    """.trimIndent()
+
+    val f = """
+        ____
+        |___
+        |   
+    """.trimIndent()
+
+    val g = """
+        ____
+        | __
+        |__]
+    """.trimIndent()
+
+    val h = """
+        _  _
+        |__|
+        |  |
+    """.trimIndent()
+
+    val i = """
+        _
+        |
+        |
+    """.trimIndent()
+
+    val j = """
+         _
+         |
+        _|
+    """.trimIndent()
+
+    val k = """
+        _  _
+        |_/ 
+        | \_
+    """.trimIndent()
+
+    val l = """
+        _   
+        |   
+        |___
+    """.trimIndent()
+
+    val m = """
+        _  _
+        |\/|
+        |  |
+    """.trimIndent()
+
+    val n = """
+        _  _
+        |\ |
+        | \|
+    """.trimIndent()
+
+    val o = """
+        ____
+        |  |
+        |__|
+    """.trimIndent()
+
+    val p = """
+        ___ 
+        |__]
+        |   
+    """.trimIndent()
+
+    val q = """
+        ____
+        |  |
+        |_\|
+    """.trimIndent()
+
+    val r = """
+        ____
+        |__/
+        |  \
+    """.trimIndent()
+
+    val s = """
+        ____
+        [__ 
+        ___]
+    """.trimIndent()
+
+    val t = """
+        ___
+         | 
+         | 
+    """.trimIndent()
+
+    val u = """
+        _  _
+        |  |
+        |__|
+    """.trimIndent()
+
+    val v = """
+        _  _
+        |  |
+         \/ 
+    """.trimIndent()
+
+    val w = """
+        _ _ _
+        | | |
+        |_|_|
+    """.trimIndent()
+
+    val x = """
+        _  _
+         \/ 
+        _/\_
+    """.trimIndent()
+
+    val y = """
+        _   _
+         \_/ 
+          |  
+    """.trimIndent()
+
+    val z = """
+        ___
+          /
+         /__
+    """.trimIndent()
+
+    val space = """
+        #
+        #
+        #
+    """.trimIndent()
+}
+
+fun main() {
+    for (i in 'a'..'z') {
+        print("$i ")
+    }
+
+    println("")
+
+    val font = FontASCII()
+
+    val dictionary: MutableMap<Char, String> = mutableMapOf()
+    dictionary['a'] = font.a
+    dictionary['b'] = font.b
+    dictionary['c'] = font.c
+    dictionary['d'] = font.d
+    dictionary['e'] = font.e
+    dictionary['f'] = font.f
+    dictionary['g'] = font.g
+    dictionary['h'] = font.h
+    dictionary['i'] = font.i
+    dictionary['j'] = font.j
+    dictionary['k'] = font.k
+    dictionary['l'] = font.l
+    dictionary['m'] = font.m
+    dictionary['n'] = font.n
+    dictionary['o'] = font.o
+    dictionary['p'] = font.p
+    dictionary['q'] = font.q
+    dictionary['r'] = font.r
+    dictionary['s'] = font.s
+    dictionary['t'] = font.t
+    dictionary['u'] = font.u
+    dictionary['v'] = font.v
+    dictionary['w'] = font.w
+    dictionary['x'] = font.x
+    dictionary['y'] = font.y
+    dictionary['z'] = font.z
+
+
+    println(dictionary['a'][0])
+//    for (i in 'a'..'m') print("${dictionary[i]} ${font.space}")
+//    println("")
+//    for (i in 'n'..'z') print("${dictionary[i]}")
+//    println("")
+}
+
+
+//    val ch = arrayListOf<String>(
+//    ____ ___  ____ ___  ____ ____ ____ _  _ _  _ _  _ _    _  _
+//    |__| |__] |    |  \ |___ |___ | __ |__| |  | |_/  |    |\/|
+//    |  | |__] |___ |__/ |___ |    |__] |  | | _| | \_ |___ |  |
+//    _  _ ____ ___  ____ ____ ____ ___ _  _ _  _ _ _ _ _  _ _   _ ___
+//    |\ | |  | |__] |  | |__/ [__   |  |  | |  | | | |  \/   \_/    /
+//    | \| |__| |    |_\| |  \ ___]  |  |__|  \/  |_|_| _/\_   |    /__
+//    )
+//
+/*    val fontASCII = listOf(Pair("a","""
+        ____
+        |__|
+        |  |
+    """.trimIndent()
+    ))
+
+    println(fontASCII[0].first)
+    println(fontASCII[0].second)*/
+
+//    val fontASCII =
+
+//    println(fontASCII[0].first)
+//    println(fontASCII[0].second)
+//}
+
+
 //You completed Arrays
 
 /*fun main() {
