@@ -4,30 +4,211 @@ package org.hyperskill
 // FontASCII
 //
 
-enum class FontASCII(val ch: List<String>) {
-
-    A(listOf(
-        """
-        ____
-    """.trimIndent(),
-        """
-        |__|
-    """.trimIndent(),
-        """
-        |  |
-    """.trimIndent()
-    ));
-
-
-}
 
 fun main() {
+    val font: Map<Char, List<String>> = mapOf(
+        ' ' to listOf(
+            """    """,
+            """    """,
+            """    """
+        ),
+        'a' to listOf(
+            """____""",
+            """|__|""",
+            """|  |"""
+        ),
+        'b' to listOf(
+            """___ """,
+            """|__]""",
+            """|__]"""
+        ),
+        'c' to listOf(
+            """____""",
+            """|   """,
+            """|___"""
+        ),
+        'd' to listOf(
+            """___ """,
+            """|  \""",
+            """|__/"""
+        ),
+        'e' to listOf(
+            """____""",
+            """|___""",
+            """|___"""
+        ),
+        'f' to listOf(
+            """____""",
+            """|___""",
+            """|   """
+        ),
+        'g' to listOf(
+            """____""",
+            """| __""",
+            """|__]"""
+        ),
+        'h' to listOf(
+            """_  _""",
+            """|__|""",
+            """|  |"""
+        ),
+        'i' to listOf(
+            """_""",
+            """|""",
+            """|"""
+        ),
+        'j' to listOf(
+            """ _""",
+            """ |""",
+            """_|"""
+        ),
+        'k' to listOf(
+            """_  _""",
+            """|_/ """,
+            """| \_"""
+        ),
+        'l' to listOf(
+            """_   """,
+            """|   """,
+            """|___"""
+        ),
+        'm' to listOf(
+            """_  _""",
+            """|\/|""",
+            """|  |"""
+        ),
+        'n' to listOf(
+            """_  _""",
+            """|\ |""",
+            """| \|"""
+        ),
+        'o' to listOf(
+            """____""",
+            """|  |""",
+            """|__|"""
+        ),
+        'p' to listOf(
+            """___ """,
+            """|__]""",
+            """|   """
+        ),
+        'q' to listOf(
+            """____""",
+            """|  |""",
+            """|_\|"""
+        ),
+        'r' to listOf(
+            """____""",
+            """|__/""",
+            """|  \"""
+        ),
+        's' to listOf(
+            """____""",
+            """[__ """,
+            """___]"""
+        ),
+        't' to listOf(
+            """___""",
+            """ | """,
+            """ | """
+        ),
+        'u' to listOf(
+            """_  _""",
+            """|  |""",
+            """|__|"""
+        ),
+        'v' to listOf(
+            """_  _""",
+            """|  |""",
+            """ \/ """
+        ),
+        'w' to listOf(
+            """_ _ _""",
+            """| | |""",
+            """|_|_|"""
+        ),
+        'x' to listOf(
+            """_  _""",
+            """ \/ """,
+            """_/\_"""
+        ),
+        'y' to listOf(
+            """_   _""",
+            """ \_/ """,
+            """  |  """
+        ),
+        'z' to listOf(
+            """___ """,
+            """  / """,
+            """ /__"""
+        ),
+    )
+
+//    println(font['a']?.get(0))
+//    println(font['a']?.get(1))
+//    println(font['a']?.get(2))
+
+    val name = "Mr Anonimous"
+    val status = "Worker-coworker-superdupercoworker"
+
+    var am = ""
+    for (i in 'a'..'m') { am += i}
+    println(am)
+
+    var nz = ""
+    for (i in 'n'..'z') { nz += i}
+    println(nz)
 
 
+    for (j in 0..2) {
+        for (i in am)
+            print("${font[i]?.get(j)} ")
 
+        println("")
+    }
+
+    for (j in 0..2) {
+        for (i in nz)
+            print("${font[i]?.get(j)} ")
+
+        println("")
+    }
 
 }
 
+//    val line = "a bc".toCharArray()
+//    val  = mutableMapOf<Char, FontASCII>()
+//    val dictionary: Array<FontASCII> = FontASCII.values()
+//    val dictionary = mutableMapOf<Char, Array<FontASCII>>()
+//    dictionary['a'] = arrayOf(FontASCII.A)
+
+//    println(dictionary['a'].ch[0])
+//    println(dictionary[0].ch[0])
+//    println(dictionary[0].ch[1])
+//    println(dictionary[0].ch[2])
+
+//    val line = "ab".toCharArray()
+//
+//    for (ch in line.indices) {
+//        println(ch)
+//    }
+//}
+
+
+//class FontASCII(val ch: List<String>) {
+//
+//    A(listOf(
+//    """____""".trimIndent(),
+//    """|__|""".trimIndent(),
+//    """|  |""".trimIndent()
+//    )),
+//
+//    B(listOf(
+//    """___ """.trimIndent(),
+//    """|__]""".trimIndent(),
+//    """|__]""".trimIndent()
+//    ));
+//}
 
 //
 // Data types and variables
