@@ -144,37 +144,250 @@ fun main() {
         ),
     )
 
-//    println(font['a']?.get(0))
-//    println(font['a']?.get(1))
-//    println(font['a']?.get(2))
-
-    val name = "Mr Anonimous"
-    val status = "Worker-coworker-superdupercoworker"
-
-    var am = ""
-    for (i in 'a'..'m') { am += i}
-    println(am)
-
-    var nz = ""
-    for (i in 'n'..'z') { nz += i}
-    println(nz)
+//    val name = "Tom Smith".toLowerCase()
+    val name = "John S".toLowerCase()
+//    val name = "Mr Anonimous".toLowerCase()
+    val status = "Worker"
+//    val status = "Worker-coworker-superdupercoworker"
 
 
-    for (j in 0..2) {
-        for (i in am)
-            print("${font[i]?.get(j)} ")
+//    println("""
+//        **************************************************************
+//        *  _  _ ____      ____ _  _ ____ _  _ _ _  _ ____ _  _ ____  *
+//        *  |\/| |__/      |__| |\ | |  | |\ | | |\/| |  | |  | [__   *
+//        *  |  | |  \      |  | | \| |__| | \| | |  | |__| |__| ___]  *
+//        *                        Participant                         *
+//        **************************************************************
+//    """.trimIndent())
 
-        println("")
+    println("""
+        ****************************************
+        *      _ ____ _  _ _  _      ____      *
+        *      | |  | |__| |\ |      [__       *
+        *     _| |__| |  | | \|      ___]      *
+        *  Worker-coworker-superdupercoworker  *
+        ****************************************
+    """.trimIndent())
+
+//    println("""
+//        Enter name and surname: Tom Smith
+//        Enter person's status: Worker
+//        *********************************************
+//        *  ___ ____ _  _      ____ _  _ _ ___ _  _  *
+//        *   |  |  | |\/|      [__  |\/| |  |  |__|  *
+//        *   |  |__| |  |      ___] |  | |  |  |  |  *
+//        *                  Worker                   *
+//        *********************************************
+//    """.trimIndent())
+
+
+    println("")
+    var lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length - 1
+    println("lengthFontASCII: $lengthFontASCII")
+
+//    val sizeOfTemplate = if (lengthFontASCII > status.length) lengthFontASCII else status.length
+
+    var sizeOfTemplate = 0
+    var spacerName = 0
+    var spacerStatus = 0
+
+    if (lengthFontASCII > status.length) {
+        sizeOfTemplate = lengthFontASCII
+        spacerStatus = (sizeOfTemplate - status.length) / 2
+    } else {
+        sizeOfTemplate = status.length
+        spacerName = (sizeOfTemplate - lengthFontASCII) / 2
     }
 
-    for (j in 0..2) {
-        for (i in nz)
-            print("${font[i]?.get(j)} ")
+    println("spacerName: $spacerName")
+    println("spacerStatus: ${spacerStatus / 2}")
+    println("sizeOfTemplate: $sizeOfTemplate")
+
+    println("")
+
+    for (i in 0..5) {
+        if (i == 0 || i == 5) {
+            print("***")
+            print("*".repeat(sizeOfTemplate))
+            print("***")
+        }
+
+        if (i in 1..3) {
+            print("*  ")
+
+            print(" ".repeat(spacerName))
+
+            for (ch in name) {
+                print(font[ch]?.get(i - 1))
+                if (ch != name[name.length - 1]) print(" ")
+            }
+
+            print(" ".repeat(spacerName))
+
+            print("  *")
+        }
+
+        if (i == 4) {
+            print("*  ")
+            print(" ".repeat(spacerStatus))
+            print(status)
+            print(" ".repeat(spacerStatus))
+            print("  *")
+        }
 
         println("")
     }
 
 }
+
+
+//    // name status
+//
+//    var lengthInASCII = 0
+//    var spacer = 0
+//    for (ch in name) {
+//        lengthInASCII += font[ch]?.get(0).toString().length
+//    }
+//
+//    lengthInASCII = lengthInASCII + name.length - 1
+//
+//    if (lengthInASCII > status.length) {
+//        spacer = (lengthInASCII + 6) / lengthInASCII - 1
+//    } else {
+//        spacer = (status.length - lengthInASCII) / 2
+//    }
+//
+//    println("")
+//    println("lengthInASCII: $lengthInASCII")
+//    println("spacer: $spacer")
+
+//    println("lengthStatus: $lengthStatus")
+//
+//    println("")
+//    println("Количество символов \"$name\": ${name.length}")
+//    println("Количество символов в FontASCII(0) + \"Space\": $lengthInASCII")
+//    println("")
+//    println("Длинна статуса \"$status\": ${status.length}")
+//    println("FontASCII - статус: $lengthStatus")
+//    println("")
+
+
+//    for (i in 0..2) {
+//        for (ch in name) {
+//            print("${font[ch]?.get(i)}")
+//            if (ch != name[name.length - 1]) print(" ")
+//        }
+//        println("")
+//    }
+
+
+/*
+
+   for (i in 0..5) {
+        if (i == 0 || i == 5) {
+            print("*".repeat(lengthInASCII + spacer + 6 + spacer))
+            print("")
+        }
+
+        if (i == 4) {
+            print("*  ")
+            print(" ".repeat(spacer + ((lengthInASCII - status.length)/-1)))
+            print(status)
+            print(" ".repeat(spacer + ((lengthInASCII - status.length)/2)))
+            print("  *")
+        }
+
+        if (i in 1..3) {
+            print("*  ")
+            print(" ".repeat(spacer))
+            for (ch in name) {
+                print("${font[ch]?.get(i-1)}")
+                if (ch != name[name.length - 1]) print(" ")
+            }
+            print(" ".repeat(spacer))
+            print("  *")
+        }
+        println("")
+    }
+
+}
+
+//    println("Строка: $name")
+//    println("Количество символов в строке: ${name.length}")
+//    println("Количество символов в FontASCII: ${lengthOfLine}")
+//    println("Левый отступ: $leftSide")
+//    println("Правый отступ: $rightSide")
+//    println("")
+
+    for (j in 0..2) {
+        for (i in "Mr Anonimous".toLowerCase())
+            print("${font[i]?.get(j)} ")
+
+        println("")
+    }
+
+    var lengthOfLine = 0
+    name.forEach { lengthOfLine += font[it]?.get(0).toString().length }
+    lengthOfLine = lengthOfLine + name.length - 1
+
+    val status = "Worker"
+//    val status = "Worker-coworker-superdupercoworker"
+//    val status = "Participant"
+
+    var leftSide = if (name.length % 2 == 0) name.length / 2 - 1 else name.length / 2
+    var rightSide = name.length /2
+
+    for (i in 0..5) {
+        if (i == 0 || i == 5) {
+            repeat(lengthOfLine) {
+                print("*")
+            }
+            println("*")
+        }
+
+        if (i in 1..3) {
+            print("*" + " ".repeat(leftSide))
+            for (ch in name) {
+                print("${font[ch]?.get(i - 1)}")
+
+                if (ch != name.last()) print(" ")
+            }
+            println(" ".repeat(rightSide) + "*")
+        }
+
+        if (i == 4) {
+            print("*" + " ".repeat(if (lengthOfLine % 2 == 0) (lengthOfLine - status.length) / 2 - 1 else (lengthOfLine - status.length) / 2))
+            print(status)
+            println(" ".repeat((lengthOfLine - status.length) / 2) + "*")
+//            if (name.length % 2 == 0) name.length - 1 else name.length
+        }
+    }
+
+*/
+
+//    var am = ""
+//    for (i in 'a'..'m') { am += i}
+//    println(am)
+//
+//    var nz = ""
+//    for (i in 'n'..'z') { nz += i}
+//    println(nz)
+//
+//
+//    for (j in 0..2) {
+//        for (i in am)
+//            print("${font[i]?.get(j)} ")
+//
+//        println("")
+//    }
+//
+//    for (j in 0..2) {
+//        for (i in nz)
+//            print("${font[i]?.get(j)} ")
+//
+//        println("")
+//    }
+
 
 //    val line = "a bc".toCharArray()
 //    val  = mutableMapOf<Char, FontASCII>()
