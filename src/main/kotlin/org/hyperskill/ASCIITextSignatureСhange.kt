@@ -145,10 +145,14 @@ fun main() {
     )
 
 //    val name = "Tom Smith".toLowerCase()
-    val name = "John S".toLowerCase()
+//    val name = "John S".toLowerCase()
 //    val name = "Mr Anonimous".toLowerCase()
-    val status = "Worker"
+//    val status = "Participant"
+//    val status = "Worker"
 //    val status = "Worker-coworker-superdupercoworker"
+
+    val name = readLine()!!.toLowerCase()
+    val status = readLine()!!.toLowerCase()
 
 
 //    println("""
@@ -160,14 +164,14 @@ fun main() {
 //        **************************************************************
 //    """.trimIndent())
 
-    println("""
-        ****************************************
-        *      _ ____ _  _ _  _      ____      *
-        *      | |  | |__| |\ |      [__       *
-        *     _| |__| |  | | \|      ___]      *
-        *  Worker-coworker-superdupercoworker  *
-        ****************************************
-    """.trimIndent())
+//    println("""
+//        ****************************************
+//        *      _ ____ _  _ _  _      ____      *
+//        *      | |  | |__| |\ |      [__       *
+//        *     _| |__| |  | | \|      ___]      *
+//        *  Worker-coworker-superdupercoworker  *
+//        ****************************************
+//    """.trimIndent())
 
 //    println("""
 //        Enter name and surname: Tom Smith
@@ -181,29 +185,29 @@ fun main() {
 //    """.trimIndent())
 
 
-    println("")
+//    println("")
     var lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length - 1
-    println("lengthFontASCII: $lengthFontASCII")
+//    println("lengthFontASCII: $lengthFontASCII")
 
 //    val sizeOfTemplate = if (lengthFontASCII > status.length) lengthFontASCII else status.length
 
     var sizeOfTemplate = 0
-    var spacerName = 0
-    var spacerStatus = 0
+    var nameSpacer = 0
+    var statusSpacer = 0
 
     if (lengthFontASCII > status.length) {
         sizeOfTemplate = lengthFontASCII
-        spacerStatus = (sizeOfTemplate - status.length) / 2
+        statusSpacer = sizeOfTemplate - status.length
     } else {
         sizeOfTemplate = status.length
-        spacerName = (sizeOfTemplate - lengthFontASCII) / 2
+        nameSpacer = sizeOfTemplate - lengthFontASCII
     }
 
-    println("spacerName: $spacerName")
-    println("spacerStatus: ${spacerStatus / 2}")
-    println("sizeOfTemplate: $sizeOfTemplate")
-
-    println("")
+//    println("nameSpacer: $nameSpacer")
+//    println("statusSpacer: $statusSpacer")
+//    println("sizeOfTemplate: $sizeOfTemplate")
+//
+//    println("")
 
     for (i in 0..5) {
         if (i == 0 || i == 5) {
@@ -215,23 +219,44 @@ fun main() {
         if (i in 1..3) {
             print("*  ")
 
-            print(" ".repeat(spacerName))
+            if (nameSpacer % 2 == 0) {
+                print(" ".repeat(nameSpacer / 2))
+            } else {
+                print(" ".repeat(nameSpacer / 2))
+            }
 
             for (ch in name) {
                 print(font[ch]?.get(i - 1))
                 if (ch != name[name.length - 1]) print(" ")
             }
 
-            print(" ".repeat(spacerName))
+            if (nameSpacer % 2 == 0) {
+                print(" ".repeat(nameSpacer / 2))
+            } else {
+                print(" ".repeat(nameSpacer / 2 + 1)) // +
+            }
 
             print("  *")
         }
 
         if (i == 4) {
             print("*  ")
-            print(" ".repeat(spacerStatus))
+
+            if (statusSpacer % 2 == 0) {
+                print(" ".repeat(statusSpacer / 2)) // +
+            } else {
+                print(" ".repeat(statusSpacer / 2)) // +
+            }
+//            print(" ".repeat(statusSpacer))
+
             print(status)
-            print(" ".repeat(spacerStatus))
+
+            if (statusSpacer % 2 == 0) {
+                print(" ".repeat(statusSpacer / 2))
+            } else {
+                print(" ".repeat(statusSpacer / 2 + 1)) // +
+            }
+
             print("  *")
         }
 
