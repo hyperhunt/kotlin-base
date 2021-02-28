@@ -144,16 +144,205 @@ fun main() {
         ),
     )
 
-//    val name = "Tom Smith".toLowerCase()
-//    val name = "John S".toLowerCase()
-//    val name = "Mr Anonimous".toLowerCase()
-//    val status = "Participant"
-//    val status = "Worker"
-//    val status = "Worker-coworker-superdupercoworker"
 
-    val name = readLine()!!.toLowerCase()
-    val status = readLine()!!.toLowerCase()
+    fun test(name: String) {
 
+        if (name == "Bill Gates") {
+            println("""
+        Enter name and surname: Bill Gates
+        Enter person's status: VIP
+        ***************************************************
+        *  ___  _ _    _         ____ ____ ___ ____ ____  *
+        *  |__] | |    |         | __ |__|  |  |___ [__   *
+        *  |__] | |___ |___      |__] |  |  |  |___ ___]  *
+        *                       VIP                       *
+        ***************************************************
+        """.trimIndent())
+        }
+
+        if (name == "John S") {
+            println("""
+        Enter name and surname: John S
+        Enter person's status: Worker-coworker-superdupercoworker
+        ****************************************
+        *      _ ____ _  _ _  _      ____      *
+        *      | |  | |__| |\ |      [__       *
+        *     _| |__| |  | | \|      ___]      *
+        *  Worker-coworker-superdupercoworker  *
+        ****************************************
+        """.trimIndent())
+        }
+
+        if (name == "Tom Smith") {
+            println("""
+        Enter name and surname: Tom Smith
+        Enter person's status: Worker
+        *********************************************
+        *  ___ ____ _  _      ____ _  _ _ ___ _  _  *
+        *   |  |  | |\/|      [__  |\/| |  |  |__|  *
+        *   |  |__| |  |      ___] |  | |  |  |  |  *
+        *                  Worker                   *
+        *********************************************
+        """.trimIndent())
+        }
+
+        if (name == "Mr Anonimous") {
+            println("""
+        Enter name and surname: Mr Anonimous
+        Enter person's status: Participant
+        **************************************************************
+        *  _  _ ____      ____ _  _ ____ _  _ _ _  _ ____ _  _ ____  *
+        *  |\/| |__/      |__| |\ | |  | |\ | | |\/| |  | |  | [__   *
+        *  |  | |  \      |  | | \| |__| | \| | |  | |__| |__| ___]  *
+        *                        Participant                         *
+        **************************************************************
+        """.trimIndent())
+        }
+
+        if (name == "X Y") {
+            println("""
+                > X Y
+                > VeryVeryLoooooooooongSatus
+                ********************************
+                *        _  _      _   _       *
+                *         \/        \_/        *
+                *        _/\_        |         *
+                *  VeryVeryLoooooooooongSatus  *
+                ********************************
+            """.trimIndent())
+        }
+
+        if (name == "Y X") {
+            println("""
+                > X Y
+                > VeryVeryLooooooooooongSatus
+                **********************************
+                *        _  _      _   _         *
+                *         \/        \_/          *
+                *        _/\_        |           *
+                *  VeryVeryLooooooooooongSatus   *
+                **********************************
+            """.trimIndent())
+        }
+
+    }
+
+    fun signatureInASCII(_name: String, status: String) {
+
+        test(_name)
+
+        val name = _name.toLowerCase()
+
+
+        val statusLength = if (status.length % 2 == 0) {
+            status
+        } else {
+            if (status != "VIP") "$status " else " $status"
+        }
+
+//    println("Длинна сообщения: ${name.length}")
+//    println("Длинна статуса + 1, если нечётное: ${status.length} % ${statusLength.length}")
+//    println("")
+
+
+//    var lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length
+
+        val lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length - 1
+//    println("lengthFontASCII: $lengthFontASCII")
+        var nameSpacer = name.length - 1
+//    println("nameSpacer: $nameSpacer")
+
+        val sizeOfTemplate = if (lengthFontASCII > statusLength.length) lengthFontASCII else statusLength.length
+//    println("sizeOfTemplate: $sizeOfTemplate")
+//    println("")
+
+        for (i in 0..5) {
+            if (i == 0 || i == 5) {
+                print("***")
+
+                for (i in 1..sizeOfTemplate) {
+                    print("*") // #
+                }
+
+                println("***")
+            }
+
+            if (i in 1..3) {
+                print("*  ")
+
+                //
+                print(" ".repeat((sizeOfTemplate - lengthFontASCII) / 2)) // %
+
+                var counter = nameSpacer
+                name.forEach {
+                    print(font[it]?.get(i - 1))
+                    if (counter > 0) {
+                        print(" ")
+                        counter--
+                    }
+                }
+
+                // %
+                print(" ".repeat(if ((sizeOfTemplate % 2 == 0) && (lengthFontASCII < status.length)) {
+                    (sizeOfTemplate - lengthFontASCII) / 2 + 1
+                } else {
+                    (sizeOfTemplate - lengthFontASCII) / 2
+                }))
+
+                println("  *")
+            }
+
+            if (i == 4) {
+                print("*  ")
+
+//            for (i in 1..sizeOfTemplate) {
+//                print("%")
+//            }
+
+                print(" ".repeat((sizeOfTemplate - statusLength.length) / 2)) // %
+
+                print(statusLength)
+
+                // %
+                print(" ".repeat(if (sizeOfTemplate % 2 == 0) {
+                    (sizeOfTemplate - statusLength.length) / 2
+                } else {
+                    (sizeOfTemplate - statusLength.length) / 2 + 1
+                }))
+
+                println("  *")
+            }
+//        if (i == 5) print("***") else println("  *")
+        }
+    }
+
+//    val name = readLine()!!.toLowerCase()
+//    val status = readLine()!!
+//    signatureInASCII(name, status)
+
+    signatureInASCII("Bill Gates", "VIP")
+    println("")
+    signatureInASCII("Tom Smith", "Worker")
+    println("")
+    signatureInASCII("Mr Anonimous", "Participant")
+    println("")
+    signatureInASCII("John S", "Worker-coworker-superdupercoworker")
+    println("")
+    signatureInASCII("X Y", "VeryVeryLoooooooooongSatus")
+    println("")
+    signatureInASCII("Y X", "VeryVeryLooooooooooongSatus")
+
+}
+
+
+//    println("""
+//        ***************************************************
+//        *  ___  _ _    _         ____ ____ ___ ____ ____  *
+//        *  |__] | |    |         | __ |__|  |  |___ [__   *
+//        *  |__] | |___ |___      |__] |  |  |  |___ ___]  *
+//        *                       VIP                       *
+//        ***************************************************
+//    """.trimIndent())
 
 //    println("""
 //        **************************************************************
@@ -186,84 +375,84 @@ fun main() {
 
 
 //    println("")
-    var lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length - 1
+//    println(name.length)
+//    var lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length
+//    lengthFontASCII = if (lengthFontASCII % 2 == 0) lengthFontASCII - 1 else lengthFontASCII - 1
 //    println("lengthFontASCII: $lengthFontASCII")
 
 //    val sizeOfTemplate = if (lengthFontASCII > status.length) lengthFontASCII else status.length
 
-    var sizeOfTemplate = 0
-    var nameSpacer = 0
-    var statusSpacer = 0
-
-    if (lengthFontASCII > status.length) {
-        sizeOfTemplate = lengthFontASCII
-        statusSpacer = sizeOfTemplate - status.length
-    } else {
-        sizeOfTemplate = status.length
-        nameSpacer = sizeOfTemplate - lengthFontASCII
-    }
-
+//    var sizeOfTemplate = 0
+//    var nameSpacer = 0
+//    var statusSpacer = 0
+//
+//    if (lengthFontASCII > status.length) {
+//        sizeOfTemplate = lengthFontASCII
+//        statusSpacer = sizeOfTemplate - status.length
+//    } else {
+//        sizeOfTemplate = status.length
+//        nameSpacer = sizeOfTemplate - lengthFontASCII
+//    }
+//
 //    println("nameSpacer: $nameSpacer")
 //    println("statusSpacer: $statusSpacer")
 //    println("sizeOfTemplate: $sizeOfTemplate")
+////
+////    println("")
 //
-//    println("")
-
-    for (i in 0..5) {
-        if (i == 0 || i == 5) {
-            print("***")
-            print("*".repeat(sizeOfTemplate))
-            print("***")
-        }
-
-        if (i in 1..3) {
-            print("*  ")
-
-            if (nameSpacer % 2 == 0) {
-                print(" ".repeat(nameSpacer / 2))
-            } else {
-                print(" ".repeat(nameSpacer / 2))
-            }
-
-            for (ch in name) {
-                print(font[ch]?.get(i - 1))
-                if (ch != name[name.length - 1]) print(" ")
-            }
-
-            if (nameSpacer % 2 == 0) {
-                print(" ".repeat(nameSpacer / 2))
-            } else {
-                print(" ".repeat(nameSpacer / 2 + 1)) // +
-            }
-
-            print("  *")
-        }
-
-        if (i == 4) {
-            print("*  ")
-
-            if (statusSpacer % 2 == 0) {
-                print(" ".repeat(statusSpacer / 2)) // +
-            } else {
-                print(" ".repeat(statusSpacer / 2)) // +
-            }
-//            print(" ".repeat(statusSpacer))
-
-            print(status)
-
-            if (statusSpacer % 2 == 0) {
-                print(" ".repeat(statusSpacer / 2))
-            } else {
-                print(" ".repeat(statusSpacer / 2 + 1)) // +
-            }
-
-            print("  *")
-        }
-
-        println("")
-    }
-
-}
+//    for (i in 0..5) {
+//        if (i == 0 || i == 5) {
+//            print("***")
+//            print("*".repeat(sizeOfTemplate))
+//            print("***")
+//        }
+//
+//        if (i in 1..3) {
+//            print("*  ")
+//
+//            if (nameSpacer % 2 == 0) {
+//                print("#".repeat(nameSpacer))
+//            } else {
+//                print("@".repeat(nameSpacer))
+//            }
+//
+//            for (ch in name) {
+//                print(font[ch]?.get(i - 1))
+//                if (ch != name[name.length - 1]) print("#")
+//            }
+//
+//            if (nameSpacer % 2 == 0) {
+//                print("=".repeat(nameSpacer)) // ===
+//            } else {
+//                print("%".repeat(nameSpacer)) // +
+//            }
+//
+//            print("  *")
+//        }
+//
+//        if (i == 4) {
+//            print("*  ")
+//
+////            if (statusSpacer % 2 == 0) {
+////                print(" ".repeat() // +
+////            } else {
+////                print(" ".repeat(statusSpacer / 2 + 1)) // +
+////            }
+//
+//            print(" ".repeat(sizeOfTemplate - (statusSpacer) - status.length))
+//
+//
+//            print(status)
+//
+//            print(" ".repeat(sizeOfTemplate - (statusSpacer) - status.length))
+//
+//            print("  *")
+//        }
+//
+//        println("")
+//    }
+//
+//}
 
 
 //    // name status
