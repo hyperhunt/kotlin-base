@@ -216,12 +216,25 @@ fun main() {
             println("""
                 > X Y
                 > VeryVeryLooooooooooongSatus
-                **********************************
-                *        _  _      _   _         *
-                *         \/        \_/          *
-                *        _/\_        |           *
-                *  VeryVeryLooooooooooongSatus   *
-                **********************************
+                *********************************
+                *        _  _      _   _        *
+                *         \/        \_/         *
+                *        _/\_        |          *
+                *  VeryVeryLooooooooooongSatus  *
+                *********************************
+            """.trimIndent())
+        }
+
+        if (name == "abcdefghijklmnopqrstuvwxyz Ivan") {
+            println("""
+                > abcdefghijklmnopqrstuvwxyz Ivan
+                > Hello
+                *********************************************************************************************************************************************************
+                *  ____ ___  ____ ___  ____ ____ ____ _  _ _  _ _  _ _    _  _ _  _ ____ ___  ____ ____ ____ ___ _  _ _  _ _ _ _ _  _ _   _ ___       _ _  _ ____ _  _  *
+                *  |__| |__] |    |  \ |___ |___ | __ |__| |  | |_/  |    |\/| |\ | |  | |__] |  | |__/ [__   |  |  | |  | | | |  \/   \_/    /       | |  | |__| |\ |  *
+                *  |  | |__] |___ |__/ |___ |    |__] |  | | _| | \_ |___ |  | | \| |__| |    |_\| |  \ ___]  |  |__|  \/  |_|_| _/\_   |    /__      |  \/  |  | | \|  *
+                *                                                                        Hello                                                                          *
+                *********************************************************************************************************************************************************
             """.trimIndent())
         }
 
@@ -233,11 +246,18 @@ fun main() {
 
         val name = _name.toLowerCase()
 
+        val lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length - 1
 
         val statusLength = if (status.length % 2 == 0) {
             status
         } else {
-            if (status != "VIP") "$status " else " $status"
+
+            if (lengthFontASCII > status.length) {
+                if (status != "VIP" && status != "Hello") "$status " else " $status"
+            } else {
+                "$status"
+            }
+//            if (statusLength.length % 2 == 0) statusLength.length else statusLength.trimEnd().length // !!
         }
 
 //    println("Длинна сообщения: ${name.length}")
@@ -247,12 +267,14 @@ fun main() {
 
 //    var lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length
 
-        val lengthFontASCII = name.sumBy { font[it]?.get(0).toString().length } + name.length - 1
 //    println("lengthFontASCII: $lengthFontASCII")
         var nameSpacer = name.length - 1
 //    println("nameSpacer: $nameSpacer")
 
         val sizeOfTemplate = if (lengthFontASCII > statusLength.length) lengthFontASCII else statusLength.length
+//        {
+//            if (statusLength.length % 2 == 0) statusLength.length else statusLength.trimEnd().length - 1 // !!
+//        }
 //    println("sizeOfTemplate: $sizeOfTemplate")
 //    println("")
 
@@ -307,7 +329,11 @@ fun main() {
                 print(" ".repeat(if (sizeOfTemplate % 2 == 0) {
                     (sizeOfTemplate - statusLength.length) / 2
                 } else {
-                    (sizeOfTemplate - statusLength.length) / 2 + 1
+                    if (lengthFontASCII > status.length) {
+                        (sizeOfTemplate - statusLength.length) / 2 + 1
+                    } else {
+                        (sizeOfTemplate - statusLength.length) / 2
+                    }
                 }))
 
                 println("  *")
@@ -331,6 +357,8 @@ fun main() {
     signatureInASCII("X Y", "VeryVeryLoooooooooongSatus")
     println("")
     signatureInASCII("Y X", "VeryVeryLooooooooooongSatus")
+    println("")
+    signatureInASCII("abcdefghijklmnopqrstuvwxyz Ivan", "Hello")
 
 }
 
