@@ -4,7 +4,11 @@ fun String.prin() {
     println("--> $this")
 }
 
+fun main() {
+    val line = "Hellow"
 
+    print("${line[line.lastIndex]}${line.substring(1 until line.lastIndex)}${line[0]}")
+}
 
 // Multi-dimensional arrays
 
