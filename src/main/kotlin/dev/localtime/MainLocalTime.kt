@@ -57,6 +57,8 @@ fun main() {
     holder.printTime()
     holder.setTimeSupplier(POSIXTimeSupplier())
     holder.printTime()
+
+
 }
 
 //private fun MainLocalTime.printTime(timeSupplier: String) {
