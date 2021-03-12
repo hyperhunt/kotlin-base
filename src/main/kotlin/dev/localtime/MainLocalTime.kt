@@ -8,8 +8,12 @@ package dev.localtime
 }
 */
 
-open class TimeSupplier {
-    open fun getTime(): Long {
+interface TimeSupplierInterface {
+    fun getTime(): Long
+}
+
+open class TimeSupplier : TimeSupplierInterface {
+    override fun getTime(): Long {
         return System.currentTimeMillis()
     }
 }
@@ -27,8 +31,19 @@ class POSIXTimeSupplier : TimeSupplier() {
 }
 
 class MainLocalTime {
-    fun printTime(timeSupplier: TimeSupplier) {
+    fun printTime(timeSupplier: TimeSupplierInterface) {
         println("POSIX time: ${timeSupplier.getTime()}")
+    }
+}
+
+class TimeHolder(private var timeSupplier: TimeSupplierInterface) {
+
+    fun printTime() {
+        println("POSIX Holder: ${timeSupplier.getTime()}")
+    }
+
+    fun setTimeSupplier(supplier: TimeSupplierInterface) {
+        timeSupplier = supplier
     }
 }
 
@@ -37,7 +52,11 @@ fun main() {
 //    println(timeSupplier.getLocalTime())
 //    MainLocalTime().printTime(timeSupplier = LocalTimeSupplier().getLocalTime())
 //    MainLocalTime().printTime(timeSupplier = LocalTimeSupplier())
-    MainLocalTime().printTime(timeSupplier = POSIXTimeSupplier())
+//    MainLocalTime().printTime(timeSupplier = POSIXTimeSupplier())
+    val holder = TimeHolder(TimeSupplier())
+    holder.printTime()
+    holder.setTimeSupplier(POSIXTimeSupplier())
+    holder.printTime()
 }
 
 //private fun MainLocalTime.printTime(timeSupplier: String) {
