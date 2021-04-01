@@ -1,13 +1,18 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.4.21'
     id 'application'
+    id("org.springframework.boot") version "2.4.3"
 }
 
 group 'dev.tony'
 version '1.0-SNAPSHOT'
 
 repositories {
+    maven { url = uri("https://jitpack.io") }
     mavenCentral()
+    maven {
+        url = uri("https://plugins.gradle.org/m2/")
+    }
 }
 
 dependencies {
@@ -29,6 +34,18 @@ dependencies {
 
     // Color
     implementation("com.github.ajalt.mordant:mordant:2.0.0-alpha2")
+
+    // SkrapeIt
+    compile("it.skrape:skrapeit-core:1.0.0-alpha6")
+    implementation("it.skrape:skrapeit-core:+")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1")
+    implementation("it.skrape:skrapeit:0.0.1")
+//    Sprint Boot
+    compile("org.springframework.boot:spring-boot-gradle-plugin:2.4.3")
+//    implementation ('org.springframework.boot:spring-boot-starter-web')
+
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
 }
 
 compileKotlin {
